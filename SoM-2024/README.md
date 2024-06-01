@@ -24,7 +24,7 @@ SoM'24 will consist of 6 weeks of learning, project works and assignments. The c
 - Collaborate with your peers and mentors.
 - Have fun learning!
 
->We encourage you to write a blog post to understanding your learnings and share it with the community.
+>We encourage you to write a blog post of your understanding of different topics share it with the community.
 
 ## Submission Guidelines
 This repository will be used to submit your assignments and projects.
