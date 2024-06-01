@@ -10,3 +10,6 @@ Welcome This is the starting point of your journey in the Summer of Machine Lear
  -Data Analysis and Visualisation
  - Descriptive Statistics
 
+## To Do for evaluation
+Make a directory of your name in this week 1 directory and add all the task and projects in that directory with a good README where you can summarize your understandings.
+
