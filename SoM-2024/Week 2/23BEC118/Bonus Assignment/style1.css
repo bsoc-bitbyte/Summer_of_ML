@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+    h1 {
+        color: gray;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 5rem; 
+        text-align: center;
+        margin-top:30x;
+        margin-bottom: 30;
+    }
+    body {
+        background-color:black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+    }
+    .button-container {
+        text-align: center;
+    }
+
+    .button-container button {
+        background-color:blueviolet;
+        color: rgb(157, 51, 51);
+        padding: 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-flex;
+        font-size: 16px;
+        margin: 50px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .button-container button:hover {
+        background-color: #a06b45;
+    }
+    .card {
+        display: none;
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 50px;
+        background-color: #282c34;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+        animation: create-appear 0.5s ease;
+    }
+    
+    
+    input {
+        font-family: 'Rajdhani', sans-serif;
+        width: 80%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #abb2bf;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        background-color: #282c34;
+        color: #abb2bf;
+        font-size: 20px;
+    }
+    
+    button {
+        width: 120px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: #555;
+        color: #abb2bf;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    
+    button::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background-color: #fff;
+        opacity: 0.1;
+        pointer-events: none;
+        transform: skewX(-30deg);
+        transition: left 0.3s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    }
+    
+    button:hover {
+        background-color: #3e4452;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+    
+    button:hover::before {
+        left: 100%;
+    }
+    
+    button:active {
+        background-color: #22272e;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .modal-content {
+        background-color: #282c34;
+        margin: 20% auto;
+        padding: 20px;
+        border: 1px solid #abb2bf;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        animation: structure-appear 0.5s ease;
+    }
+    .close {
+        color: #abb2bf;
+        float: right;
+        font-size: 32px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.4s;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #2e00e6;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    
+    .button-container button {
+        font-family: 'Rajdhani', sans-serif;
+        width: 180px;
+        height: 60px;
+        font-size: 22px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: #ffd000;
+        color: #a25a5a;
+        box-shadow: 0 0 10px rgba(204, 255, 0, 0.8);
+        outline: none;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+        animation: button-glitch 1.5s ;
+    }
+    
+    .button-container button:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        opacity: 0.5;
+        transform: skewX(-30deg);
+        transition: left 0.3s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    }
+    
+    .button-container button:hover {
+        background-color: #6f00ff;
+        box-shadow: 0 0 20px rgba(0, 30, 255, 0.8);
+    }
+    
+    .button-container button:hover:before {
+        left: 100%;
+    }
+    
+    .button-container button:active {
+        background-color: #2e00e6;
+        box-shadow: 0 0 10px rgba(85, 0, 255, 0.8);
+    }
+    
+    
+    
