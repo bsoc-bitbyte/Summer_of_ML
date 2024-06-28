@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeChef & Codeforces Rating Converter</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'predictor/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>CodeChef & Codeforces Rating Converter</h1>
+
+        <div class="row">
+            <!-- Codeforces to CodeChef form -->
+            <div class="col-md-6">
+                
+                <h2>Enter your Rating</h2>
+                <form method="post" id="rating-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Predict</button>
+                </form>
+                <img id="loading-gif" src="{% static 'CC_CF\predictor\static\predictor\Xk-Eqv.gif' %}" alt="Loading" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript to show the GIF when user starts inputting
+        document.getElementById('rating-form').addEventListener('input', function() {
+            document.getElementById('loading-gif').style.display = 'block';
+        });
+
+        // Optionally, you can hide the GIF after form submission
+        document.getElementById('rating-form').addEventListener('submit', function() {
+            document.getElementById('loading-gif').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

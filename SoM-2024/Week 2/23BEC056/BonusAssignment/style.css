@@ -1,0 +1,119 @@
+html{
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+}
+p{
+    font-size: 1.2rem;
+    display: inline;
+}
+
+#Stage1{
+    /* visibility: hidden; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #22AAA1;
+    width: 75%;
+    height: 25rem;
+    margin-top: 4rem;
+    margin-left: 11.5rem;
+    border-radius: 1rem;
+}
+
+#rating{
+    position: absolute;
+    font: bolder;
+    font-size: 3rem;
+    top: 3.5rem;
+}
+#command{
+    position: absolute;
+    font : light;
+    font-size: 2rem;
+    top: 8.5rem;
+    margin: 2.5rem;
+    margin-bottom: 1rem;
+}
+#button2{
+    background-color: #041B15;
+    font-size: 2rem;
+    color: white;
+    height: 3rem;
+    width: 12rem;
+    border-radius: 0.6rem;
+
+}
+#button1{
+    margin: 2rem;
+    margin-top: 4rem;
+    background-color: #041B15;
+    font-size: 2rem;
+    color: white;
+    height: 3rem;
+    width: 12rem;
+    border-radius: 0.6rem;
+}
+
+#Stage2andCodeforces{
+    visibility: hidden;
+    position : absolute;
+    top: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: #22AAA1;
+    width: 65%;
+    height: 25rem;
+    margin-left: 12.3rem;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+#Stage2andCodeChef{
+    visibility: hidden;
+    position : absolute;
+    top: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: #22AAA1;
+    width: 65%;
+    height: 25rem;
+    margin-left: 12.3rem;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+#Rating{
+    font-size: 3rem;
+    position : absolute;
+    top: 3rem;
+}
+input{
+    height: 2.3rem;
+    width: 12rem;
+    border: black;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+#Pre{
+    background-color: #041B15;
+    font-size: 1.5rem;
+    color: white;
+    height: 2.5rem;
+    width: 11rem;
+    border-radius: 0.6rem;
+}
+
+
+
+
