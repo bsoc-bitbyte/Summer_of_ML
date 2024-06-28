@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rating_converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <span class="predicton">Rank Predictor</span>
+        <h1>Choose Your CP platform</h1>
+        <div class="button">
+            <button class="chef">CodeChef</button>
+            <button class="forces">CodeForces</button>
+        </div>
+        <div class="main">
+            <div class="about  ">
+                <h3>About</h3>
+                <p>
+                    This is a Rating predictor model which can predicts anyones
+                    rating on different platform based on the current rating of
+                    your active contest platform. Currently it supports only
+                    CodeChef and CodeForces. It is based on the linear
+                    regression model. It is trained on the data of 10,000+ users
+                    of CodeChef and CodeForces. Just enter your current rating
+                    and it will predict your rating on other platform.
+                </p>
+            </div>
+            <div class="ask hidden ">
+                <h3>Enter Rating</h3>
+                <input class ="input"type="numbers" placeholder="Rating">
+                <button>Submit</button>
+            </div>
+        </div>
+        <div class="result hidden">
+            <h3>your</h3>
+            <h4>result</h4>
+        </div>
+        <div class="footer">
+            <h4>Turning numbers into narratives, one rank at a time. </h4>
+            <h4>PDS</h4>
+            
+        </div>
+    </div>
+   <script src="script.js"></script>
+    
+</body>
+</html>
