@@ -1,4 +1,6 @@
-# Topics covered in Week 3
+# Week 3
+
+## Topics covered in Week 3
 
 - Bias and Variance
 - Regularization
