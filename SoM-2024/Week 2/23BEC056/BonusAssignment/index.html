@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "style.css">
+    <title>Rating Predictor</title>
+</head>
+<body>
+    <div Id="Stage1">
+        <p Id="rating"> RATINGS !</p>
+        <p Id="command">HEY CODER! CHOOSE COMPETITIVE PROGRAMMING PLATFORM</p>
+        <button onclick = "Codeforces()" id = "button1">Codeforces</button>  
+        <button id = "button2" onclick = "CodeChef()">CodeChef</button>
+    </div>
+    <div id = "Stage2andCodeforces">
+        <p Id="Rating"> Enter Your Codeforces Rating</p>
+        <input id = "input 1">
+        <!-- <p id = "predict 1"> Your Predicted CodeChef Rating is: </p> -->
+        <button onclick = "Eval1()" id = "Pre">Predict</button>
+        <p id ="ans 1"></p><p id ="ans 12"></p>
+
+    </div>
+    <div id = "Stage2andCodeChef">
+        <p Id="Rating"> Enter Your CodeChef Rating</p>
+        <input id = "input 2">
+        <button onclick = "Eval2()" id = "Pre">Predict</button>
+        <p id ="ans 2"></p><p id ="ans 21"></p>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>

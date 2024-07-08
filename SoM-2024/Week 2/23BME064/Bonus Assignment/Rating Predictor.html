@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rating Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #b8b8b8;
+    
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .options {
+            margin-bottom: 20px;
+        }
+        .option-button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .option-button:hover {
+            background-color: #45a049;
+            
+        }
+        .input-boxes {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-boxes input {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-boxes button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .input-boxes button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://github.com/sumitc27" class="github-link">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/450px-GitHub_Invertocat_Logo.svg.png" alt="GitHub"  width="100" >  </a>
+    <h1>Rating Predictor</h1>
+    <div class="options">
+        <button class="option-button" id="cc-to-cf" >CodeChef to CodeForces</button>
+        <button class="option-button" id="cf-to-cc">CodeForces to CodeChef</button>
+    </div>
+    <div class="input-boxes" id="cc-to-cf-input">
+        <label for="cc-rating">CodeChef Rating:</label>
+        <input type="number" id="cc-rating" placeholder="Enter CodeChef Rating">
+        <button onclick="predictCCtoCF()">Predict Codeforces Rating</button>
+        <div class="result" id="cc-to-cf-result"></div>
+    </div>
+    <div class="input-boxes" id="cf-to-cc-input">
+        <label for="cf-rating">Codeforces Rating:</label>
+        <input type="number" id="cf-rating" placeholder="Enter Codeforces Rating">
+        <button onclick="predictCFtoCC()">Predict CodeChef Rating</button>
+        <div class="result" id="cf-to-cc-result"></div>
+    </div>
+
+    <script>
+        document.getElementById('cc-to-cf').onclick = function() {
+            document.getElementById('cc-to-cf-input').style.display = 'flex';
+            document.getElementById('cf-to-cc-input').style.display = 'none';
+            document.getElementById('cc-to-cf-result').innerText = '';
+            document.getElementById('cf-to-cc-result').innerText = '';
+        };
+        document.getElementById('cf-to-cc').onclick = function() {
+            document.getElementById('cc-to-cf-input').style.display = 'none';
+            document.getElementById('cf-to-cc-input').style.display = 'flex';
+            document.getElementById('cc-to-cf-result').innerText = '';
+            document.getElementById('cf-to-cc-result').innerText = '';
+        };
+
+        function predictCCtoCF() {
+            let ccRating = document.getElementById('cc-rating').value;
+            if (ccRating ) {
+                let cfRating = 0.83156206 * ccRating - 32.62926507;
+                document.getElementById('cc-to-cf-result').innerText = "Predicted Codeforces Rating: " + cfRating.toFixed(0);
+            } else {
+                document.getElementById('cc-to-cf-result').innerText = "Please enter a valid CodeChef rating.";
+            }
+        }
+
+        function predictCFtoCC() {
+            let cfRating = document.getElementById('cf-rating').value;
+            if (cfRating) {
+                let ccRating = (parseFloat(cfRating) + 32.62926507) / 0.83156206;
+                document.getElementById('cf-to-cc-result').innerText = "Predicted CodeChef Rating: " + ccRating.toFixed(0);
+            } 
+            else {
+                document.getElementById('cf-to-cc-result').innerText = "Please enter a valid Codeforces rating.";
+            }
+        }
+    </script>
+</body>
+</html>
