@@ -1,0 +1,330 @@
+Form link : https://docs.google.com/forms/d/e/1FAIpQLSfmT0PMYiLtyLWwlSxgD5rn9ch_IscgZrfSuYeQDG8ydyG6qw/viewform
+
+Link to dataset : https://drive.google.com/file/d/1sbQ5WJ-KCPBrhT2YagtaARGoujCMpB8Q/view
+
+Resource-doc shared : https://docs.google.com/document/d/1E5cUtu6iaNxHblbw1TbX-7r8PC5uRcsnx9Z3ui-bFMg/
+from google.colab import drive
+drive.mount('/content/drive')
+# SA-2023 WEEK 3 GRADED ASSIGNMENT
+
+> Spaceship Titanic
+
+Predict which passengers are transported to an alternate dimension
+
+![](https://www.gannett-cdn.com/-mm-/682bf77435754aee88576469063388a7d8b07c2a/c=0-150-1280-873/local/-/media/2017/02/01/Reno/RGJ/636215634914521096-image001.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp)
+
+### <b>Description</b>
+
+Welcome to the year 2912, where your data science skills are needed to solve a cosmic mystery. We've received a transmission from four lightyears away and things aren't looking good.
+
+The Spaceship Titanic was an interstellar passenger liner launched a month ago. With almost 13,000 passengers on board, the vessel set out on its maiden voyage transporting emigrants from our solar system to three newly habitable exoplanets orbiting nearby stars.
+
+While rounding Alpha Centauri en route to its first destination—the torrid 55 Cancri E—the unwary Spaceship Titanic collided with a spacetime anomaly hidden within a dust cloud. Sadly, it met a similar fate as its namesake from 1000 years before. Though the ship stayed intact, almost half of the passengers were transported to an alternate dimension!
+### <b>Data description</b>
+
+- Personal records for about two-thirds (~8700) of the passengers, to be used as training data.
+- <code>PassengerId</code> - A unique Id for each passenger. Each Id takes the form gggg_pp where gggg indicates a group the passenger is travelling with and pp is their number within the group. People in a group are often family members, but not always.
+- <code>HomePlanet</code> - The planet the passenger departed from, typically their planet of permanent residence.
+- <code>CryoSleep</code> - Indicates whether the passenger elected to be put into suspended animation for the duration of the voyage. Passengers in cryosleep are confined to their cabins.
+- <code>Cabin</code> - The cabin number where the passenger is staying. Takes the form deck/num/side, where side can be either P for Port or S for Starboard.
+- <code>Destination</code> - The planet the passenger will be debarking to.
+- <code>Age</code> - The age of the passenger.
+- <code>VIP</code> - Whether the passenger has paid for special VIP service during the voyage.
+- <code>RoomService, FoodCourt, ShoppingMall, Spa, VRDeck</code> - Amount the passenger has billed at each of the Spaceship Titanic's many luxury amenities.
+- <code>Name</code> - The first and last names of the passenger.
+- <code>Transported</code> - Whether the passenger was transported to another dimension. This is the target, the column you are trying to predict.
+
+### <b>Algorithm Documentation</b> (Highly recommended!)
+- <code>Logistic Regression</code> : https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+- <code>SVM</code> : https://scikit-learn.org/stable/modules/svm.html
+Confusion Matrix : https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html
+- <code>Plot Confusion Matrix</code> : https://scikit-learn.org/stable/modules/generated/sklearn.metrics.plot_confusion_matrix.html
+- <code>ROC_AUC Score</code> : https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score
+- <code>Classification Report</code> : https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
+- <code>Label Encoder</code> : https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
+- <code>Label Binarizer</code> : https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelBinarizer.html
+- <code>Standard Scaler</code> : https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+- <code>Cross Val Score</code> : https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html
+# <span><h1 style = "font-family: garamond; font-size: 40px; font-style: normal; letter-spcaing: 3px; background-color: #f6f5f5; color :#fe346e; border-radius: 100px 100px; text-align:center">Install Required Libraries</h1></span>
+!pip install --upgrade scikit-learn  #There was an error with importing confusion_matrix from sklearn.mertices , so there was a need to upgrade it for google colab
+# even after upgrading the plot_confusion_matrix didnt worked as it has been changed in new version
+## ======== YOUR CODE HERE ======== ##
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, roc_auc_score, roc_curve
+from sklearn.metrics import classification_report, accuracy_score
+import matplotlib.pyplot as plt
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import cross_validate
+from sklearn.svm import SVC
+
+
+
+#### Read the data
+df = pd.read_csv("/content/data.csv")
+df
+#### Check the shape of data. It should be  (8693, 14)
+## ======== YOUR CODE HERE ======== ##
+df.shape
+
+## ================================ ##
+df
+#### Apply describe on dataframe
+## ======== YOUR CODE HERE ======== ##
+df.describe()
+
+## ================================ ##
+#### Check if there any null value in the dataset.
+## ======== YOUR CODE HERE ======== ##
+df.isna().sum()
+
+## ================================ ##
+df
+#### Number continuous and categorical features
+#################################################################
+
+# Don't make mistake here. Ask in the discussion section if you are stuck. Help will be provided....
+
+#################################################################
+
+## ======== YOUR CODE HERE ======== ##
+categorical_features = ['Cabin', 'CryoSleep', 'HomePlanet', 'Destination', 'VIP', 'Name', 'Transported']
+
+for columns in categorical_features :
+  le = LabelEncoder()
+  df[columns] = le.fit_transform(df[columns])
+
+
+## ======== YOUR CODE HERE ======== ##
+
+df['CryoSleep'].nunique()
+#### Unique values
+# Print the number of unique values of the categorical features
+
+## ======== YOUR CODE HERE ======== ##
+
+for column in categorical_features:
+  print(column,'',df[column].nunique())
+
+
+## ======== YOUR CODE HERE ======== ##
+
+# seeing the n-unique for passengerID , we can say there is no error and no overlap in passengerID as all are unique .
+# But there is an anomaly as Name of passengers might overlap as not all of them are unique .
+<code>Note: If we apply one-hot-encoding to a categorical feature with many unique values, </code>
+- Number of columns will be high
+- Time required for training a model will be high
+- We may not get usefull insights about the data
+
+<code>This is the reason we are droping the features with more unique values.</code>
+
+#### Drop the features
+# Drop those categorical features which have more than 25 unique values
+
+## ======== YOUR CODE HERE ======== ##
+df.drop(df[['Cabin','Name','PassengerId']],axis = "columns",inplace=True)
+## ======== YOUR CODE HERE ======== ##
+
+# Print the shape after droping the features
+# Check: Shape --> (8693, 11)
+df.shape
+## ======== YOUR CODE HERE ======== ##
+
+
+## ======== YOUR CODE HERE ======== ##
+
+df
+#### One Hot Encoding
+# Hint: search for get_dummies
+
+## ======== YOUR CODE HERE ======== ##
+#It makes a column for each unique value in categorial features and assign a boolean if it was associated with the passenger or not being True or False
+## ======== YOUR CODE HERE ======== ##
+pd.get_dummies(df)
+
+# Check: Shape --> (8693, 15)
+df.shape
+
+
+df
+df
+#### Changing bool columns to 0,1
+## ======== Run this code(Don't change any code)======== ##
+
+
+
+
+## ======== Run this code(Don't change any code)======== ##
+
+df
+#### Split the data into train and test
+## ======== YOUR CODE HERE ======== ##
+
+## Test size should be 15% of the full dataset and use random state = 2022
+X = df.drop(df[['Transported']], axis = "columns")
+Y = df[['Transported']]
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,train_size=0.75,random_state= 2022)
+
+
+
+## ================================ ##
+## ======== YOUR CODE HERE ======== ##
+
+   ## Let us print the shapes:
+X_train.shape
+X_test.shape
+Y_train.shape
+Y_test.shape
+
+
+
+## ================================ ##
+#### Scale the data using Standard Scaler
+## Use Standard Scaler to scale the train and test data
+
+
+## ======== YOUR CODE HERE ======== ##
+sc = StandardScaler()
+Xtest_scaled = sc.fit_transform(X_test)
+Xtrain_scaled = sc.fit_transform(X_train)
+
+## ================================ ##
+## <b>Logistic Regression</b>
+#### Use default parameters unless mentioned
+## Use Random state = 2021 and fit the LR model
+
+## ======== YOUR CODE HERE ======== ##
+lc = LogisticRegression(random_state=2021)
+lc.fit(Xtrain_scaled, Y_train)
+Y_predicted = lc.predict(Xtest_scaled)
+
+## ================================ ##
+#### Plot confusion matrix
+## ======== YOUR CODE HERE ======== ##
+cm = confusion_matrix(Y_test,Y_predicted)
+cm
+
+
+
+## ================================ ##
+#### Print classification report
+## ======== YOUR CODE HERE ======== ##
+classification_report(Y_test, Y_predicted)
+
+
+## ================================ ##
+#### Print accuracy score
+## ======== YOUR CODE HERE ======== ##
+accuracy_score(Y_test, Y_predicted)
+
+
+## ================================ ##
+#### Print ROC-AUC score
+## ======== YOUR CODE HERE ======== ##
+Y_predict_prob = lc.predict_proba(Xtest_scaled)[:,1]
+## Note: Use predict_proba!!! Read documentation/google it
+roc_auc_score(Y_test, Y_predict_prob)
+
+
+## ================================ ##
+#### Plot ROC-AUC Curve
+## ======== YOUR CODE HERE ======== ##
+
+## Set appropriate X label, Y label and Title for the graph
+fp, tp, thresh = roc_curve(Y_test, Y_predict_prob)
+plt.figure(figsize=(8, 6))
+plt.plot(X_test, Y_predicted)
+plt.plot([0, 1], [0, 1], linestyle='--', color='grey')
+plt.xlabel('X_label')
+plt.ylabel('Y_label')
+plt.title('Receiver Operating Characteristic (ROC) Curve')
+plt.legend()
+plt.show()
+
+## ================================ ##
+#### Cross validation
+## ======== YOUR CODE HERE ======== ##
+
+## cv=5
+cross_validate(lc, Xtest_scaled, Y_test)
+
+
+## ================================ ##
+## <b>SVM</b>
+#### Use default parameters unless mentioned
+## ======== YOUR CODE HERE ======== ##
+
+## parameters: random_state = 2022, C=5, gamma='scale', kernel='rbf', probability=True
+param_grid = {
+    "random_state" : [2022],
+    "C" : [5],
+    "gamma" : ["scale"],
+    "kernel" : ["rbf"],
+    "probability" : [True]
+}
+rm = RandomizedSearchCV(
+    SVC(),
+    param_grid
+)
+rm.fit(Xtrain_scaled,Y_train)
+Y_predicted_svm = rm.predict(X_test)
+
+
+
+## ================================ ##
+rm.best_params_
+#### Plot confusion matrix
+## ======== YOUR CODE HERE ======== ##
+
+## Use display labels as per your choice.
+cm_2 = confusion_matrix(Y_test, Y_predicted_svm)
+cm_2
+
+## ================================ ##
+#### Print classification report
+## ======== YOUR CODE HERE ======== ##
+classification_report(Y_test, Y_predicted_svm)
+
+## ================================ ##
+#### Print accuracy score
+## ======== YOUR CODE HERE ======== ##
+
+accuracy_score(Y_test, Y_predicted_svm)
+
+
+## ================================ ##
+#### Print ROC-AUC score
+## ======== YOUR CODE HERE ======== ##
+
+## Note: Use predict_proba!!! Read documentation/google it
+
+roc_auc_score(Y_test, Y_predicted_svm)
+
+## ================================ ##
+#### Plot ROC-AUC curve
+## ======== YOUR CODE HERE ======== ##
+
+## Set appropriate X label, Y label and Title for the graph
+Y_predict_prob_svm = rm.predict_proba(Xtest_scaled)[:,1]
+fp, tp, thresh = roc_curve(Y_test, Y_predict_prob_svm)
+plt.figure(figsize=(8, 6))
+plt.plot(X_test, Y_predicted)
+plt.plot([0, 1], [0, 1], linestyle='--', color='grey')
+plt.xlabel('X_label')
+plt.ylabel('Y_label')
+plt.title('Receiver Operating Characteristic (ROC) Curve')
+plt.legend()
+plt.show()
+## ================================ ##
+#### Cross validation
+## ======== YOUR CODE HERE ======== ##
+
+## cv=5
+cross_validate(rm, Xtest_scaled, Y_test, cv = 5)
+
+## ================================ ##
+# Congratulations! Assignment Completed!
