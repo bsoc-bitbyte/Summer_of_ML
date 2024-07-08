@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Predictor</title>
+
+    <link rel="stylesheet" href="css.css">
+</head>
+<body class="body">
+    <div class="header">
+        <h1>Predict Your Rating Here!</h1>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="./src/codechef logo.jpeg" alt="CodeChef Logo" class="gridimg">
+            <div>
+                <button id="chefbutton" class="submitbutton">Predict CodeChef Rating</button>
+            </div>
+            
+        </div>
+        
+        <div class="grid-item">
+            <img src="./src/codeforces.jfif" alt="CodeForces Logo" class="gridimg">
+            <div>
+                <button  id="forcesbutton" class="submitbutton">Predict CodeForces Rating</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <div id="title"><h3  id="display"></h3></div>
+        <div id="input"><input type="number" min="0" id="numberInput" name="numberInput" placeholder="Enter your number" required>
+        </div>
+        <div id="buttons">
+            <span class="span"><button  id="eval">Evaluate</button></span>
+            <span class="span"><button  id="close">Close</button></span>
+        </div>
+            
+        
+        
+        
+        
+        
+       
+    </div>
+
+    
+
+
+    <script src="scripts.js"></script> 
+</body>
+</html>

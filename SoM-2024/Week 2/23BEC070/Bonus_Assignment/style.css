@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #2C2C2C; 
+    color: #FFFFFF; 
+}
+
+main {
+    height: 100vh;
+    background-image: url("https://media.assettype.com/analyticsinsight%2Fimport%2Fwp-content%2Fuploads%2F2021%2F08%2Fcompetitive-programming.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: max(2000px, 100vw);
+}
+
+.box {
+    height: 100vh;
+    background-color: black;
+    opacity: 0.74;
+    position: relative;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.content> :nth-child(1) {
+    font-size: 80px;
+    margin-bottom: 40px;
+    font-weight: 500;
+    color: #3dbdeb;
+}
+
+.content> :nth-child(2) {
+    font-size: 50px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.content> :nth-child(3) {
+    margin-left: 25px;
+}
+
+.about {
+    padding: 30px;
+    border: 2px solid #00AEEF;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: rgba(5, 43, 53, 0.9);
+    color: #00AEEF;
+}
+
+.about> :nth-child(1) {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.platform {
+    font-size: 30px;
+}
+
+input {
+    font-size: 20px;
+    height: 33px;
+    border: 2px solid #00AEEF;
+}
+
+button {
+    height: 31px;
+    width: 89px;
+    margin-left: 20px;
+    position: relative;
+    top: -4px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #00AEEF;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007B9E;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#result1,
+#result2 {
+    margin: 10px;
+    font-size: 20px;
+}
