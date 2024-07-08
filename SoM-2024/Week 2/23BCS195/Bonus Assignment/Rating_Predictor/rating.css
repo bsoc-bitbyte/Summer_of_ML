@@ -1,0 +1,184 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #72abec;
+    color: #b6247e;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 60px;
+    color: #ffffff;
+    animation: title-appear 0.5s ease;
+}
+
+.card {
+    display: none;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 20px #664bd28e;
+    animation: card-appear 0.5s ease;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #6a94e3;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background-color: #769ff3;
+    color: #f0f2f5;
+    font-size: 20px;
+}
+
+button {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #ca80dc;
+    color: #edf0f5;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: #fff;
+    opacity: 0.1;
+    pointer-events: none;
+    transform: skewX(-30deg);
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #3e4452;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    background-color: #01367f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #1b59d7;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #abb2bf;
+    color:#ffffff;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    animation: modal-appear 0.5s ease;
+}
+
+.close {
+    color: #dce0e9;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.close:hover,
+.close:focus {
+    color: #e61111;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.button-container button {
+    font-family: 'Poppins', sans-serif;
+    width: 180px;
+    height: 60px;
+    font-size: 22px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e83196;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(1, 23, 18, 0.8);
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-container button:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0.5;
+    transform: skewX(-30deg);
+    transition: background-color 0.5s ease;
+}
+
+.button-container button:hover {
+    background-color: #1f57b7;
+    box-shadow: 0 0 20px rgba(2, 19, 19, 0.8);
+}
+
+.button-container button:hover:before {
+    left: 100%;
+}
+
+.button-container button:active {
+    background-color: #1486cc;
+    box-shadow: 0 0 10px rgba(1, 8, 7, 0.8);
+}
+
+
+
+
+
+

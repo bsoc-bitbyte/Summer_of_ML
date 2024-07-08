@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="rating.css" rel="stylesheet" />
+        <title>Rating predictor</title>
+    </head>
+    <body>
+        <header>
+            <h1>Choose your CP platform</h1>
+        </header>
+
+        <div class="button-container">
+            <button id="codechef">CodeChef</button>
+            <button id="codeforces">CodeForces</button>
+        </div>
+
+        <div class="card" id="card">
+            <h2 id="inp">Enter your Rating</h2>
+            <input type="number" id="rank" placeholder="Rating" />
+            <button id="submit">Submit</button>
+        </div>
+
+        <!-- Modal Box -->
+        <div id="modal-box" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="out">Your Predicted Rating</h2>
+                <p id="output">Rating :</p>
+            </div>
+        </div>
+        
+        <script src="rating.js"></script>
+    </body>
+</html>
